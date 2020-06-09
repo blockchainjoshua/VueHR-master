@@ -1,0 +1,91 @@
+﻿@model IEnumerable<VueHr.Models.UserLeaves>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h5>Leave Requests</h5>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table" style="font-size:12px;">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveType)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hours)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.DateFiled)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovedBy)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveType.Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Lastname) @Html.DisplayFor(modelItem => item.Employee.Firstname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hours)
+            </td>
+           
+            <td>               
+                @Html.DisplayFor(modelItem => item.DateFiled)
+            </td>
+
+            <td>
+                <input type="checkbox" checked="@item.IsApproved" readonly/>
+                @*@Html.DisplayFor(modelItem => item.IsApproved)*@
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedBy)
+            </td>
+
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

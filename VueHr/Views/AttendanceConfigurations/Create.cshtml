@@ -1,0 +1,112 @@
+﻿@model VueHr.Models.AttendanceConfiguration
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AttendanceConfiguration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LateGracePeriod" class="control-label"></label>
+                <input asp-for="LateGracePeriod" class="form-control" />
+                <span asp-validation-for="LateGracePeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoLatesOrUndertime" class="control-label"></label>
+                <input asp-for="NoLatesOrUndertime" class="form-control" />
+                <span asp-validation-for="NoLatesOrUndertime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoundOffLates" class="control-label"></label>
+                <input asp-for="RoundOffLates" class="form-control" />
+                <span asp-validation-for="RoundOffLates" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TardinessMultiplier" class="control-label"></label>
+                <input asp-for="TardinessMultiplier" class="form-control" />
+                <span asp-validation-for="TardinessMultiplier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UseTardinessBrackets" class="control-label"></label>
+                <input asp-for="UseTardinessBrackets" class="form-control" />
+                <span asp-validation-for="UseTardinessBrackets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaximumBreakTime" class="control-label"></label>
+                <input asp-for="MaximumBreakTime" class="form-control" />
+                <span asp-validation-for="MaximumBreakTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequireLunchBreakAfter" class="control-label"></label>
+                <input asp-for="RequireLunchBreakAfter" class="form-control" />
+                <span asp-validation-for="RequireLunchBreakAfter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeHasNoAbsent" class="control-label"></label>
+                <input asp-for="EmployeeHasNoAbsent" class="form-control" />
+                <span asp-validation-for="EmployeeHasNoAbsent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredWorkingHours" class="control-label"></label>
+                <input asp-for="RequiredWorkingHours" class="form-control" />
+                <span asp-validation-for="RequiredWorkingHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HalfDayIfTardinessReached" class="control-label"></label>
+                <input asp-for="HalfDayIfTardinessReached" class="form-control" />
+                <span asp-validation-for="HalfDayIfTardinessReached" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AbsentIfTardinessReached" class="control-label"></label>
+                <input asp-for="AbsentIfTardinessReached" class="form-control" />
+                <span asp-validation-for="AbsentIfTardinessReached" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowOffsettingOfOt" class="control-label"></label>
+                <input asp-for="AllowOffsettingOfOt" class="form-control" />
+                <span asp-validation-for="AllowOffsettingOfOt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OvertimeMultiplier" class="control-label"></label>
+                <input asp-for="OvertimeMultiplier" class="form-control" />
+                <span asp-validation-for="OvertimeMultiplier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalMinutesBeforeOt" class="control-label"></label>
+                <input asp-for="AdditionalMinutesBeforeOt" class="form-control" />
+                <span asp-validation-for="AdditionalMinutesBeforeOt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedTimeInEarlyOffset" class="control-label"></label>
+                <input asp-for="AllowedTimeInEarlyOffset" class="form-control" />
+                <span asp-validation-for="AllowedTimeInEarlyOffset" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartOfScheduleOffset" class="control-label"></label>
+                <input asp-for="StartOfScheduleOffset" class="form-control" />
+                <span asp-validation-for="StartOfScheduleOffset" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,131 @@
+﻿@model IEnumerable<VueHr.Models.AttendanceConfiguration>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LateGracePeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoLatesOrUndertime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoundOffLates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TardinessMultiplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseTardinessBrackets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaximumBreakTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequireLunchBreakAfter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeHasNoAbsent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredWorkingHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HalfDayIfTardinessReached)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsentIfTardinessReached)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllowOffsettingOfOt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OvertimeMultiplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionalMinutesBeforeOt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllowedTimeInEarlyOffset)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartOfScheduleOffset)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateGracePeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoLatesOrUndertime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoundOffLates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TardinessMultiplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseTardinessBrackets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumBreakTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireLunchBreakAfter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeHasNoAbsent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredWorkingHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HalfDayIfTardinessReached)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsentIfTardinessReached)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowOffsettingOfOt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OvertimeMultiplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalMinutesBeforeOt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowedTimeInEarlyOffset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartOfScheduleOffset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

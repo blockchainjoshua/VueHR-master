@@ -1,0 +1,394 @@
+﻿@model VueHr.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+@{
+    var workExperienceList = Model.EmployeeWorkBackground.ToList();
+
+}
+<head>
+    <link href="~/css/employeeDetails.css" rel="stylesheet" />
+</head>
+<h1>Details</h1>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#generalInfo" role="tab">General Information</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#educational" role="tab">Educational/Work</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#schedule" role="tab">Schedule</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#attendance" role="tab">Attendance</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#configuration" role="tab">Configurations</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#certification" role="tab">Certification & Licences</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#memos" role="tab">Corrective Actions / Memo</a>
+    </li>
+</ul><!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="generalInfo" role="tabpanel">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    @Html.DisplayNameFor(model => model.BiometricId)
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    @Html.DisplayNameFor(model => model.Firstname)
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    @Html.DisplayNameFor(model => model.Middlename)
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    @Html.DisplayNameFor(model => model.Lastname)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.BiometricId)">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Firstname)">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Middlename)">
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Lastname)">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    @Html.DisplayNameFor(model => model.CurrentAddress)
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    @Html.DisplayNameFor(model => model.PermanentAddress)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.CurrentAddress)">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.PermanentAddress)">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    @Html.DisplayNameFor(model => model.Phone)
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    @Html.DisplayNameFor(model => model.Email)
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    @Html.DisplayNameFor(model => model.PlaceOfBirth)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Phone)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Email)">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.BirthDate)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.PlaceOfBirth)">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    @Html.DisplayNameFor(model => model.Religion)
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    @Html.DisplayNameFor(model => model.Gender)
+                </div>
+
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    @Html.DisplayNameFor(model => model.Age)
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    @Html.DisplayNameFor(model => model.CivilStatus)
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    @Html.DisplayNameFor(model => model.Skin)
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    @Html.DisplayNameFor(model => model.BloodType)
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    @Html.DisplayNameFor(model => model.Weight)
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    @Html.DisplayNameFor(model => model.Height)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Religion)">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Gender)">
+                </div>
+     
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Age)">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.CivilStatus)">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Skin)">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.BloodType)">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Weight)">
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.Height)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="educational" role="tabpanel">
+
+        <div>
+            <h6>Educational Attainment</h6>
+            @* Grad School *@
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Grad. School</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Course</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Date Graduated</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().GradSchool)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().GradSchoolCourse)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().GradSchoolGradDate)">
+                </div>
+            </div>
+            @* Grad School End*@
+
+            @* College School *@
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>College</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Course</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Date Graduated</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().College)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().CollegeCourse)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().CollegeGradDate)">
+                </div>
+            </div>
+            @* College School End*@
+
+            @* Vocational *@
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <label>Vocational</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Date Graduated</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().Vocational)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().VocationalGradDate)">
+                </div>
+            </div>
+            @* Vocational*@
+
+            @* Secondary *@
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <label>Secondary</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Date Graduated</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().Secondary)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().Secondary)">
+                </div>
+            </div>
+            @* Secondary*@
+
+            @* Primary *@
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <label>Primary</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Date Graduated</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().Primary)">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(model => model.EmployeeEducationalBackground.FirstOrDefault().PrimaryGradDate)">
+                </div>
+            </div>
+            @* Primary*@
+            <hr>
+            <h6>Work Experience</h6>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label>Company</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label>Position</label>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <label>From</label>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <label>To</label>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label>Reason For Leaving</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label>Contact Number</label>
+                </div>
+            </div>
+            @foreach (var data in Model.EmployeeWorkBackground)
+            {
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.Company)">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.Position)">
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.From)">
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.To)">
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.Reason)">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.ContactNumber)">
+                    </div>
+                </div>
+            }
+
+            <hr>
+            <h6>References</h6>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label>Name</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <label>Company</label>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label>Position</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <label>Contact Number</label>
+                </div>
+            </div>
+            @foreach (var data in Model.EmployeeReferences)
+            {
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.Name)">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.Company)">
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.Position)">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <input type="text" id="disabledTextInput" class="form-control" disabled value="@Html.DisplayFor(modelItem => data.ContactNumber)">
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="tab-pane" id="schedule" role="tabpanel">
+        <p>Schedule</p>
+    </div>
+    <div class="tab-pane" id="attendance" role="tabpanel">
+        <p>Attendance</p>
+    </div>
+    <div class="tab-pane" id="configuration" role="tabpanel">
+        <p>Configuration</p>
+    </div>
+    <div class="tab-pane" id="certification" role="tabpanel">
+        <p>Certification & Licences</p>
+    </div>
+    <div class="tab-pane" id="memos" role="tabpanel">
+        <p>Corrective Actions / Memo</p>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
